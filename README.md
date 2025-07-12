@@ -47,7 +47,34 @@ A robust Spring Boot REST API for the GlowCorner e-commerce platform, handling u
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/glowcorner-backend.git
+   git clone https://github.com/DKBT31/glowcorner-backend.git
+   cd glowcorner-backend
+   ```
+
+2. **Set up environment variables:**
+   ```bash
+   # Copy the example environment file
+   cp .env.example .env
+   
+   # Edit .env with your actual credentials
+   # Use any text editor like nano, vim, or VS Code
+   code .env
+   ```
+
+3. **Configure your .env file with actual values:**
+   ```properties
+   # Example values (replace with your own):
+   MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/GlowCorner
+   MONGODB_DATABASE=GlowCorner
+   GOOGLE_CLIENT_ID=246122933764-example.apps.googleusercontent.com
+   GOOGLE_CLIENT_SECRET=GOCSPX-yourGoogleSecret
+   MAIL_USERNAME=youremail@gmail.com
+   MAIL_PASSWORD=yourAppPassword
+   STRIPE_SECRET_KEY=sk_test_yourStripeSecretKey
+   JWT_SECRET=yourJWTSecretAtLeast32CharactersLong
+   ```
+
+4. **Install dependencies and run:**
    cd glowcorner-backend
    ```
 
