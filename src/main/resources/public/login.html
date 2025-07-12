@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login with Google</title>
+</head>
+<body>
+
+<h2>Login with Google</h2>
+<button onclick="loginWithGoogle()">Login with Google</button>
+
+<script>
+    function loginWithGoogle() {
+        window.location.href = "http://localhost:8080//oauth2/authorization/google";
+    }
+
+    // Khi Google login thành công, sẽ redirect kèm theo code trên URL
+    window.onload = function () {
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get("code");  // Lấy mã xác thực từ Google
+
+        if (code) {
+            // Sau khi Google xác thực, tự động chuyển hướng đến API /auth/login/google
+            window.location.href = `http://localhost:8080/auth/login/google?code=${code}`;
+        }
+    };
+</script>
+
+</body>
+</html>
