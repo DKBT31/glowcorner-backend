@@ -12,7 +12,8 @@ import java.util.Map;
 
 /**
  * Configuration class to load environment variables from .env file
- * This allows team members to simply copy the .env file and have everything work
+ * This allows team members to simply copy the .env file and have everything
+ * work
  */
 @Component
 public class DotenvConfig implements ApplicationContextInitializer<ConfigurableApplicationContext> {
@@ -22,7 +23,7 @@ public class DotenvConfig implements ApplicationContextInitializer<ConfigurableA
         try {
             // Load .env file from the root of the project
             Dotenv dotenv = Dotenv.configure()
-                    .directory("./")  // Look in the current directory (project root)
+                    .directory("./") // Look in the current directory (project root)
                     .ignoreIfMissing() // Don't fail if .env file is missing
                     .load();
 
@@ -38,9 +39,9 @@ public class DotenvConfig implements ApplicationContextInitializer<ConfigurableA
             // Add the properties to Spring's environment
             ConfigurableEnvironment environment = applicationContext.getEnvironment();
             environment.getPropertySources().addFirst(new MapPropertySource("dotenv", envMap));
-            
+
             System.out.println("✅ .env file loaded successfully with " + envMap.size() + " variables");
-            
+
         } catch (Exception e) {
             System.err.println("⚠️  Warning: Could not load .env file: " + e.getMessage());
             System.err.println("Make sure the .env file exists in the project root directory");
